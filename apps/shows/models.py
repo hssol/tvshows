@@ -10,7 +10,7 @@ class ShowManager(models.Manager):
         if len(postData['network']) < 3:
             errors["network"] = "Show network name should be at least 1 character"
         if len(postData['desc']) < 10:
-            errors["desc"] = "Show description should be at least 10 characters"
+            errors["desc"] = "Show description should be at least 2 characters"
         return errors
 
 
