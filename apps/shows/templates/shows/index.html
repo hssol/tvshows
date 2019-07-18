@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         *{
-            margin: 20px 0px 0px 20px;
+            margin: 0px;
             padding: 0px;
         }
         h1{
@@ -19,12 +19,6 @@
             display: inline-block;
             vertical-align: top;
         }
-        .viewBooks{
-            display: inline-block;
-            margin-left: 90px;
-            height: auto;
-            width: 500px;
-        }
         th, tr, td{
             border: 1px solid black;
             text-align: center;
@@ -33,29 +27,41 @@
         button{
             margin-bottom: 10px;
         }
+        h2, h4{
+            display: inline-block;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+        table{
+            margin-bottom: 10px;
+        }
+        
         </style>
 </head>
 <body>
-    <!-- <a href="/shows"><button class="btn btn-info">Back to all shows</button></a> -->
-    <h1>Shows</h1>
-    <table style="width:30%">
-        <tr>
-            <th>ID</th>
-            <th>Title</th> 
-            <th>Network</th>
-            <th>Actions</th>
-            
-        </tr>
-        {% for show in all_shows %}
-        <tr>
-            <td>{{show.id}}</td>
-            <td>{{show.title}}</td>
-            <td>{{show.network}}</td>
-            <td><a href="/shows/{{show.id}}"> Show </a><a href="/shows/{{show.id}}/edit"> Edit </a><a href="/delete_show/{{show.id}}"> Delete </a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a name="add_show" class="btn btn-primary" href="/shows/new" role="button">Add A Show</a>
+    <div class="container-fluid">
+        <h2>Welcome, {{request.session.username}}</h2>
+        <a href="/logout"><button class="btn btn-warning">Logout</button></a>
+        <h1>Shows</h1>
+        <table style="width:30%">
+            <tr>
+                <th>ID</th>
+                <th>Title</th> 
+                <th>Network</th>
+                <th>Actions</th>
+                
+            </tr>
+            {% for show in all_shows %}
+            <tr>
+                <td>{{show.id}}</td>
+                <td>{{show.title}}</td>
+                <td>{{show.network}}</td>
+                <td><a href="/shows/{{show.id}}"> Show </a><a href="/shows/{{show.id}}/edit"> Edit </a><a href="/delete_show/{{show.id}}"> Delete </a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a name="add_show" class="btn btn-primary" href="/shows/new" role="button">Add A Show</a>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
